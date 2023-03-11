@@ -23,3 +23,6 @@
   background-color: lightgray;
   margin-right: 5px !important;
 }
+.point:hover {
+  cursor: pointer;
+}

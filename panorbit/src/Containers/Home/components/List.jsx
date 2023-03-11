@@ -34,8 +34,15 @@ const List = () => {
             alignItems="center"
             key={ele.email}
           >
-            <Avatar size="md" name={ele?.name} src={ele?.profilepicture} />
-            <Text fontSize="lg">{ele?.name}</Text>
+            <Avatar
+              className="point"
+              size="md"
+              name={ele?.name}
+              src={ele?.profilepicture}
+            />
+            <Text className="point" fontSize="lg">
+              {ele?.name}
+            </Text>
           </Box>
         ))}
     </Box>

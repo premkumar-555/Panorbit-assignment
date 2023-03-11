@@ -2,9 +2,13 @@ import React from "react";
 import "../Home.css";
 import { Box, Text, Avatar } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const List = () => {
   const { usersList } = useSelector((state) => state);
-  console.log("list ", usersList);
+  const navigate = useNavigate();
+  const navigateToProfile = (ele) => {
+    navigate(`profile/${ele?.id}`, { state: ele });
+  };
   return (
     <Box
       sx={{
@@ -35,12 +39,17 @@ const List = () => {
             key={ele.email}
           >
             <Avatar
+              onClick={() => navigateToProfile(ele)}
               className="point"
               size="md"
               name={ele?.name}
               src={ele?.profilepicture}
             />
-            <Text className="point" fontSize="lg">
+            <Text
+              onClick={() => navigateToProfile(ele)}
+              className="point"
+              fontSize="lg"
+            >
               {ele?.name}
             </Text>
           </Box>

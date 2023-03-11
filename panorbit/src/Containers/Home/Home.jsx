@@ -25,6 +25,7 @@ const Home = () => {
             fill-opacity="1"
             class="transition-all duration-300 ease-in-out delay-150 path-0"
             transform="rotate(-180 720 350)"
+            class='stoke'
           ></path>
         </svg>
       </div>

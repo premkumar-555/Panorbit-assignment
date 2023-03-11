@@ -26,3 +26,8 @@
 .point:hover {
   cursor: pointer;
 }
+.stoke {
+  stroke: #bee3f8;
+  stroke-width: 30px;
+  paint-order: stroke;
+}

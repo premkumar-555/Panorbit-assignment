@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Home.css";
 import { Box, Text, Avatar } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { selectUser, signOut } from "../../../Redux/Users/actions.js";
+
 const List = () => {
-  const { usersList } = useSelector((state) => state);
+  const { usersList, userLogged } = useSelector((state) => state);
   const navigate = useNavigate();
-  const navigateToProfile = (ele) => {
-    navigate(`profile/${ele?.id}`, { state: ele });
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (userLogged) {
+      navigate(`/profile/${userLogged?.id}`);
+    }
+  }, [userLogged]);
   return (
     <Box
       sx={{
@@ -39,14 +45,14 @@ const List = () => {
             key={ele.email}
           >
             <Avatar
-              onClick={() => navigateToProfile(ele)}
+              onClick={() => dispatch(selectUser(ele))}
               className="point"
               size="md"
               name={ele?.name}
               src={ele?.profilepicture}
             />
             <Text
-              onClick={() => navigateToProfile(ele)}
+              onClick={() => dispatch(selectUser(ele))}
               className="point"
               fontSize="lg"
             >

@@ -23,6 +23,10 @@
   background-color: lightgray;
   margin-right: 5px !important;
 }
+.whiteTxt {
+  color: white !important;
+  font-weight: 500;
+}
 .point:hover {
   cursor: pointer;
 }
